@@ -31,24 +31,33 @@ def main(argv):
         board_utils.print_all_solutions(board_iterator)
         exit(0)
 
+    output_file = open("bf_python_results.txt", "w")
+
     if args_obj.t:
         start_time = time.time()
         board_utils.print_all_solutions(board_iterator)
         elapsed_time = time.time() - start_time
-        print("\n" + "Printing ALL solutions: " + str(elapsed_time) + " s")
+        output_str = "Printing ALL solutions: " + str(elapsed_time) + " s" + "\n"
+        print(output_str)
+        output_file.write(output_str)
 
     if args_obj.ta:
         start_time = time.time()
         board_utils.find_all_solutions(board_iterator)
         elapsed_time = time.time() - start_time
-        print("\n" + "Finding ALL solutions: " + str(elapsed_time) + " s")
+        output_str = "Finding ALL solutions: " + str(elapsed_time) + " s" + "\n"
+        print(output_str)
+        output_file.write(output_str)
 
     if args_obj.tf:
         start_time = time.time()
         board_utils.find_first_solution(board_iterator)
         elapsed_time = time.time() - start_time
-        print("\n" + "Finding FIRST solution: " + str(elapsed_time) + " s")
+        output_str = "Finding FIRST solution: " + str(elapsed_time) + " s" + "\n"
+        print(output_str)
+        output_file.write(output_str)
 
+    output_file.close()
     exit(0)
 
 
